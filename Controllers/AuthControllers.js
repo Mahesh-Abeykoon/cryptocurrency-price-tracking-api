@@ -12,9 +12,10 @@ module.exports.Signup = async (req, res, next) => {
         if(existingUser){
             return res.json({message: "User already exists"});
         }
+        
+        const user = await User.create({ email, password, username, createdAt });
         const token = createSecretToken(user._id);     // Generate a secret token for user
 
-        const user = await User.create({ email, password, username, createdAt });
         res.status(201).json({ message: "User signed in successfully", success: true, user });
         next();
 
