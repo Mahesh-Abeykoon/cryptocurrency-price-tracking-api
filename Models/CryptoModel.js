@@ -1,4 +1,3 @@
-// models/CryptoModel.js
 const mongoose = require('mongoose');
 
 const cryptoSchema = new mongoose.Schema({
@@ -14,7 +13,6 @@ const cryptoSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  // Add other fields as needed
 });
 
 const Crypto = mongoose.model('Crypto', cryptoSchema);
