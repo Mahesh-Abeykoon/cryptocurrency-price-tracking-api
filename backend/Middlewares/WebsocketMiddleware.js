@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 function websocketMiddleware(server) {
-  const wsConnections = [];
+  let wsConnections = [];
 
   const wss = new WebSocket.Server({ noServer: true });
 

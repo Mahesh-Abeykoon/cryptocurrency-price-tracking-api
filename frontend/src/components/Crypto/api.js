@@ -1,4 +1,3 @@
-// api.js
 import axios from 'axios';
 
 const baseURL = 'http://localhost:5001'; // Replace with your actual backend server URL
@@ -56,5 +55,13 @@ export const deleteCryptoById = async (id) => {
     throw error;
   }
 };
-
+export const fetchPredefinedData = async () => {
+  try {
+    const response = await api.get('/predefined-cryptos');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching predefined data:', error);
+    throw error;
+  }
+};
 export default api;
