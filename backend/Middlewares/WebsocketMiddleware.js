@@ -1,16 +1,15 @@
 const WebSocket = require('ws');
+const fetchRealTimeCryptoDetails = require('../util/FetchRealTimeCryptoDetails');
 
 function websocketMiddleware(server) {
-  let wsConnections = [];
-
   const wss = new WebSocket.Server({ noServer: true });
 
   wss.on('connection', (ws) => {
-    wsConnections.push(ws);
+    fetchRealTimeCryptoDetails(wss);
+
     console.log('WebSocket connection established.');
 
     ws.on('close', () => {
-      wsConnections = wsConnections.filter(conn => conn !== ws);
       console.log('WebSocket connection closed.');
     });
   });
@@ -22,7 +21,7 @@ function websocketMiddleware(server) {
   });
 
   return (req, res, next) => {
-    req.app.locals.wsConnections = wsConnections;
+    req.app.locals.wsConnections = wss.clients;
     next();
   };
 }

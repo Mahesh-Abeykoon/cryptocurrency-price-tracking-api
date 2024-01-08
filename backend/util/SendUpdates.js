@@ -1,3 +1,5 @@
+const WebSocket = require('ws');
+
 function sendUpdates(connections, data) {
     connections.forEach(connection => {
       if (connection.readyState === WebSocket.OPEN) {
