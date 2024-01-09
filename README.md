@@ -1,5 +1,5 @@
 ## Cryptocurrency API Documentation 
-![Site preview](/crypto-api.mp4)
+![Site preview](/crypto_api.mp4)
 
 ## The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage user's favorite cryptocurrencies.
 
