@@ -1,15 +1,31 @@
 ## Cryptocurrency API Documentation 
 
-# The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage their favorite cryptocurrencies.
+## The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage their favorite cryptocurrencies.
 
 ### Base URL:
  ```console
  http://localhost:5001
  ```
 
+## WebSocket
+
+### Real-time cryptocurrency updates are available through WebSocket.
+### WebSocket Connection
+ ```jsx harmony
+  const socket = new WebSocket('ws://localhost:5001');
+```
+### Real-Time Updates
+
+ ```jsx harmony
+ socket.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  console.log(data);
+};
+```
+
 ## Authentication
-JWT (JSON Web Token)
-To access protected endpoints, users need to authenticate using JWT.
+## JWT (JSON Web Token)
+## To access protected endpoints, users need to authenticate using JWT.
 
 ### Register User
 ```console
@@ -44,7 +60,7 @@ http://localhost:5001/signup
 
 ### Login
 ```console
-localhost:5001/login
+http://localhost:5001/login
 ```
 ### Request:
 
@@ -61,23 +77,7 @@ localhost:5001/login
     "success": true
 }
 ```
-## WebSocket
-
-### Real-time cryptocurrency updates are available through WebSocket.
-### WebSocket Connection
- ```jsx harmony
-  const socket = new WebSocket('ws://localhost:5001');
-```
-### Real-Time Updates
-
- ```jsx harmony
- socket.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  console.log(data);
-};
-```
 ## Cryptocurrencies
-
 ### Get All Cryptocurrencies
 
 ```console
