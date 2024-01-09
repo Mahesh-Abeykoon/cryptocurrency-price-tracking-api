@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from './api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "../styles/CryptoUpdatePage.scss";
 
 const CryptoUpdatePage = () => {
   const { id } = useParams();
@@ -30,48 +31,54 @@ const CryptoUpdatePage = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, navigate, setUpdatedData]);
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    toast('Cryptocurrency updated successfully.');
     try {
       await api.put(`/crypto/${id}`, updatedData);
       toast('Cryptocurrency updated successfully.');
-      navigate(`/`); 
+      navigate('/');
     } catch (error) {
       console.error('Error updating cryptocurrency:', error);
       toast('Error updating cryptocurrency. Please try again.');
     }
+
   };
 
   return (
-    <div>
+    <div className="crypto-form-container">
+      <h2>Update Cryptocurrency</h2>
       {cryptoDetail && (
-        <div>
-          <h2>{cryptoDetail.name}</h2>
-          <p>{cryptoDetail.symbol}</p>
-          <p>{cryptoDetail.price}</p>
-
+        <form className="crypto-form" onSubmit={handleUpdate}>
+          <label> Name: </label>
           <input
             type="text"
-            placeholder="Update Name"
+            name="name"
             value={updatedData.name}
             onChange={(e) => setUpdatedData({ ...updatedData, name: e.target.value })}
+            required
           />
+          <label> Symbol: </label>
           <input
             type="text"
-            placeholder="Update Symbol"
+            name="symbol"
             value={updatedData.symbol}
             onChange={(e) => setUpdatedData({ ...updatedData, symbol: e.target.value })}
+            required
           />
+          <label> Price:</label>
           <input
-            type="text"
-            placeholder="Update Price"
+            type="number"
+            name="price"
             value={updatedData.price}
             onChange={(e) => setUpdatedData({ ...updatedData, price: e.target.value })}
+            required
           />
           <button onClick={handleUpdate}>Update</button>
           <button onClick={() => navigate('/')}>Back to Home</button>
-        </div>
+        </form>
       )}
       <div className="home_page">
         <ToastContainer

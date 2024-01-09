@@ -55,14 +55,14 @@ export const deleteCryptoById = async (id) => {
     throw error;
   }
 };
-//comment predifiend data since live data streaming via "ws";
-// export const fetchPredefinedData = async () => {
-//   try {
-//     const response = await api.get('/predefined-cryptos');
-//     return response.data;
-//   } catch (error) {
-//     console.error('Error fetching predefined data:', error);
-//     throw error;
-//   }
-// };
+//uncomment predifiend data since live data streaming via "ws";
+export const fetchPredefinedData = async () => {
+  try {
+    const response = await api.get('/predefined-cryptos');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching predefined data:', error);
+    throw error;
+  }
+};
 export default api;

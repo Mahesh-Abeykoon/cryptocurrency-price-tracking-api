@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Login, Signup } from "./Auth/index";
 import { CryptoListDetail, CryptoForm, CryptoUpdatePage } from "./Crypto/index";
-
+import './Global.scss';
 function App() {
   
   return (
@@ -12,7 +12,6 @@ function App() {
         <Route path="/" element={<CryptoListDetail />} />
         <Route path="/create-crypto" element={<CryptoForm />} />
         <Route path="/update/:id" element={<CryptoUpdatePage />} />
-
 
       </Routes>
     </div>
