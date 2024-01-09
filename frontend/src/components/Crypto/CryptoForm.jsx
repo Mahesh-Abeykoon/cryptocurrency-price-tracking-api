@@ -1,6 +1,9 @@
+// CryptoForm.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from './api';
+import "../styles/CryptoForm.scss";
 
 const CryptoForm = () => {
   const [formData, setFormData] = useState({
@@ -28,19 +31,24 @@ const CryptoForm = () => {
   };
 
   return (
-    <div>
-      <h2>Create a new cryptocurrency</h2>
-      <form onSubmit={handleSubmit}>
-        <label> Name: </label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-        <label> Symbol: </label>
-        <input type="text" name="symbol" value={formData.symbol} onChange={handleChange} required />
-        <label> Price:</label>
-        <input type="number" name="price" value={formData.price} onChange={handleChange} required />
-        <button type="submit">Create</button>
-        <button onClick={() => navigate('/')}>Home</button>
+    <div className="crypto-form-container">
+      <h2>Create a New Cryptocurrency</h2>
+      <form onSubmit={handleSubmit} className="crypto-form">
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="symbol">Symbol:</label>
+          <input type="text" name="symbol" value={formData.symbol} onChange={handleChange} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price:</label>
+          <input type="number" name="price" value={formData.price} onChange={handleChange} required />
+        </div>
+        <button type="submit" className="create-btn">Create</button>
+        <button onClick={() => navigate('/')} className="home-btn">Home</button>
       </form>
-      
     </div>
   );
 };
