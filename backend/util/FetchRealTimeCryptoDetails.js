@@ -1,13 +1,15 @@
 const WebSocket = require('ws');
 
 const cryptocurrencies = [
-  { symbol: 'BTC', name: 'Bitcoin', price: 0, marketCap:0, change24h:0 },
+  { symbol: 'BTC', name: 'Bitcoin', price: 0 },
   { symbol: 'ETH', name: 'Ethereum', price: 0 },
   { symbol: 'USDT', name: 'Tether USD', price: 0 },
-  { symbol: 'BNB', name: 'BNB', price: 0 },
   { symbol: 'SOL', name: 'Solana', price: 0 },
   { symbol: 'XRP', name: 'XRP', price: 0 },
+  { symbol: 'BNB', name: 'BNB', price: 0 },
   { symbol: 'USDC', name: 'USDC', price: 0 },
+  { symbol: 'ADA', name: 'ADA', price: 0 },
+  { symbol: 'ARB', name: 'ARB', price: 0 },
 ];
 
 async function fetchRealTimeCryptoDetails(wss) {
