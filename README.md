@@ -3,7 +3,7 @@
 
 ![Site preview](./real-time-data.gif)
 
-## The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage user's favorite cryptocurrencies.
+## The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage user's favorite cryptocurrencies. This provides an overview of available endpoints, authentication procedures, and real-time updates through WebSocket. 
 
 ### Base URL:
  ```console
@@ -81,28 +81,101 @@ http://localhost:5001/login
 }
 ```
 ## Cryptocurrencies
-### Get All Cryptocurrencies
 
- ```jsx harmony
-http://localhost:5001/all-cryptos
-```
 ### Get Predifined Cryptocurrencies from the API
 
  ```jsx harmony
 http://localhost:5001/predefined-cryptos
 ```
-### User make POST requests on favourites Cryptocurrencies
+### Response
+```console
+[
+    {
+        "name": "BTC",
+        "symbol": "BTC",
+        "image": "https://www.cryptocompare.com/media/37746251/btc.png",
+        "current_price": 45801.9231905197,
+        "market_cap": 897463173247.0164
+    },
+    {
+        "name": "ETH",
+        "symbol": "ETH",
+        "image": "https://www.cryptocompare.com/media/37746238/eth.png",
+        "current_price": 2374.87531154135,
+        "market_cap": 285422431610.18134
+    },
+    {
+        "name": "USDT",
+        "symbol": "USDT",
+        "image": "https://www.cryptocompare.com/media/37746338/usdt.png",
+        "current_price": 1.00038137923595,
+        "market_cap": 97585943100.4162
+    },
+    {
+        "name": "XRP",
+        "symbol": "XRP",
+        "image": "https://www.cryptocompare.com/media/38553096/xrp.png",
+        "current_price": 0.564366238005054,
+        "market_cap": 56429888452.34231
+    },
+    {
+        "name": "SOL",
+        "symbol": "SOL",
+        "image": "https://www.cryptocompare.com/media/37747734/sol.png",
+        "current_price": 98.081196675612,
+        "market_cap": 55584757438.93808
+    },
+    {
+        "name": "BNB",
+        "symbol": "BNB",
+        "image": "https://www.cryptocompare.com/media/40485170/bnb.png",
+        "current_price": 300.199998980745,
+        "market_cap": 47398226912.47582
+    },
+    {
+        "name": "USDC",
+        "symbol": "USDC",
+        "image": "https://www.cryptocompare.com/media/34835941/usdc.png",
+        "current_price": 1.00019289011243,
+        "market_cap": 25221660157.165142
+    },
+    {
+        "name": "ADA",
+        "symbol": "ADA",
+        "image": "https://www.cryptocompare.com/media/37746235/ada.png",
+        "current_price": 0.507599057165022,
+        "market_cap": 22841957572.425987
+    },
+    {
+        "name": "STETH",
+        "symbol": "STETH",
+        "image": "https://www.cryptocompare.com/media/37621928/steth.png",
+        "current_price": 2372.535658820616,
+        "market_cap": 22130623419.419212
+    },
+    {
+        "name": "ARB",
+        "symbol": "ARB",
+        "image": "https://www.cryptocompare.com/media/44081950/arb.png",
+        "current_price": 1.91494878817787,
+        "market_cap": 19149487879.86375
+    }
+]
 
- ```jsx harmony
+```
+### User makes POST requests on favourites Cryptocurrencies
+
+```jsx harmony
+http://localhost:5001/crypto
+```
+ ```jsx console
 [
   {
-    "id": "1",
     "name": "Bitcoin",
     "symbol": "BTC",
     "price": 45051.18
   },
   {
-    "id": "2",
     "name": "Ethereum",
     "symbol": "ETH",
     "price": 2270.76
@@ -110,28 +183,52 @@ http://localhost:5001/predefined-cryptos
   //..
 ]
 ```
+
+### Get all Cryptocurrencies
 #### Request:
  ```jsx harmony
- http://localhost:5001/crypto
+http://localhost:5001/all-cryptos
 ```
 
-### Request:
-```console
- {
-    "name": "Bitcoin",
-    "symbol": "BTC",
-    "price": "345.21"
- }
-```
 ### Response:
 ```console
-{
-    "name": "Bitcoin",
-    "symbol": "BTC",
-    "price": 345.21,
-    "_id": "659d9b38922d8d5d24de14ba",
-    "__v": 0
-}
+[
+    {
+        "_id": "659ba9170a3157d377305ec9",
+        "name": "XRP",
+        "symbol": "XRP",
+        "price": 23.271,
+        "__v": 0
+    },
+    {
+        "_id": "659d7e7a07b952ab6d52b002",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "price": 235.42,
+        "__v": 0
+    },
+    {
+        "_id": "659da173922d8d5d24de14db",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "price": 41.2,
+        "__v": 0
+    },
+    {
+        "_id": "659da46c922d8d5d24de14e5",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "price": 125.21,
+        "__v": 0
+    },
+    {
+        "_id": "659da49f922d8d5d24de14fb",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "price": 42.45,
+        "__v": 0
+    }
+]
 ```
 ### Make a GET Request for Specified Id
 
@@ -151,7 +248,6 @@ http://localhost:5001/crypto/:id
 Cryptocurrency deleted successfully
 ```
 
-## This API documentation provides an overview of available endpoints, authentication procedures, and real-time updates through WebSocket. 
 
 ## Showing toast messages after every processes including user Signup, Signin, Add, Update ..Crytpo details
 ![Site preview](/incorrect_email.png)
