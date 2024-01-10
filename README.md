@@ -1,5 +1,4 @@
 ## Cryptocurrency API Documentation 
-![Site preview](./crypto_app.gif)
 
 ![Site preview](./real-time-data.gif)
 
@@ -318,6 +317,7 @@ http://localhost:5001/crypto/:id
 Cryptocurrency deleted successfully
 ```
 
+![Site preview](./crypto_app.gif)
 
 ## Showing toast messages after every processes including user Signup, Signin, Add, Update ..Crytpo details
 ![Site preview](/incorrect_email.png)
