@@ -74,7 +74,32 @@ module.exports = websocketMiddleware;
 ## JWT (JSON Web Token)
 ## To access protected endpoints, users need to authenticate using JWT.
 ### JWT Middlewares
+``` jsx harmny
+//Import necessary modules and the User model.
+const User = require("../Models/UserModel");
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
+module.exports.userVerification = (req, res) => {
+
+  //Extract the JWT from the cookies in the reques & Check if the token exists.
+  const token = req.cookies.token
+  if (!token) {
+    return res.json({ status: false })
+  }
+  //Verify the JWT using the jwt.verify function, using the provided secret key from the environment variables (process.env.TOKEN_KEY)
+  jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+    if (err) {
+     return res.json({ status: false })
+    } else {
+     //If the JWT is successfully verified, query the database (using Mongoose) to find the user with the specified id from the decoded token.
+      const user = await User.findById(data.id)
+      if (user) return res.json({ status: true, user: user.username })
+      else return res.json({ status: false })
+    }
+  })
+}
+```
 ### Register User
  ```jsx harmony
 http://localhost:5001/signup
