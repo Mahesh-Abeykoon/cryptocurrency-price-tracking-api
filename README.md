@@ -25,10 +25,55 @@
   console.log(data);
 };
 ```
+## Web Socket Middleware websocketMiddleware
+``` jsx harmony
+//Import the 'ws' library and a custom function called 'fetchRealTimeCryptoDetails'.
+
+const WebSocket = require('ws');
+const fetchRealTimeCryptoDetails = require('../util/FetchRealTimeCryptoDetails');
+
+//Define the main middleware function called 'websocketMiddleware' that takes a 'server' as a parameter.
+function websocketMiddleware(server) {
+  const wss = new WebSocket.Server({ noServer: true });
+
+//Set up an event listener for the 'connection' event on the WebSocket server. When a client connects, it triggers the 'connection' event.
+  wss.on('connection', (ws) => {
+
+//fetchRealTimeCryptoDetails(wss);
+    fetchRealTimeCryptoDetails(wss);
+
+//console.log('WebSocket connection established.');
+    console.log('WebSocket connection established.');
+
+//Set up an event listener for 'close' event on the WebSocket. When a client disconnects, it triggers the 'close' event, and a message is logged.
+    ws.on('close', () => {
+      console.log('WebSocket connection closed.');
+    });
+  });
+
+//Use the 'handleUpgrade' method of the WebSocket server to handle the upgrade request. This method upgrades the connection to a WebSocket connection.
+  server.on('upgrade', (request, socket, head) => {
+    wss.handleUpgrade(request, socket, head, (ws) => {
+      wss.emit('connection', ws, request);
+    });
+  });
+
+//Return a middleware function that adds the WebSocket clients to the 'req.app.locals.wsConnections' property and calls the 'next' function to continue with the next middleware.
+  return (req, res, next) => {
+    req.app.locals.wsConnections = wss.clients;
+    next();
+  };
+}
+
+//Export 'websocketMiddleware'  that can be used in other parts of the application.
+module.exports = websocketMiddleware;
+
+```
 
 ## Authentication
 ## JWT (JSON Web Token)
 ## To access protected endpoints, users need to authenticate using JWT.
+### JWT Middlewares
 
 ### Register User
  ```jsx harmony
@@ -259,6 +304,6 @@ Cryptocurrency deleted successfully
 ## Real-time data updaing in the home page
 ![Site preview](/live_data.png)
 
-## CRUD operations can be performed
+## CRUD operations for users favourites crypto details
 ![Site preview](/crud.png)
 
