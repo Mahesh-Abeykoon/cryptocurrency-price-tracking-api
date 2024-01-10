@@ -29,7 +29,7 @@
 ## To access protected endpoints, users need to authenticate using JWT.
 
 ### Register User
-```console
+ ```jsx harmony
 http://localhost:5001/signup
  ```
 ### Request:
@@ -60,7 +60,7 @@ http://localhost:5001/signup
 ```
 
 ### Login
-```console
+ ```jsx harmony
 http://localhost:5001/login
 ```
 ### Request:
@@ -81,12 +81,12 @@ http://localhost:5001/login
 ## Cryptocurrencies
 ### Get All Cryptocurrencies
 
-```console
+ ```jsx harmony
 http://localhost:5001/all-cryptos
 ```
 ### Get Predifined Cryptocurrencies from the API
 
-```console
+ ```jsx harmony
 http://localhost:5001/predefined-cryptos
 ```
 ### User make POST requests on favourites Cryptocurrencies
@@ -109,8 +109,8 @@ http://localhost:5001/predefined-cryptos
 ]
 ```
 #### Request:
-```console
-POST localhost:5001/crypto
+ ```jsx harmony
+ http://localhost:5001/crypto
 ```
 
 ### Request:
@@ -133,15 +133,15 @@ POST localhost:5001/crypto
 ```
 ### Make a GET Request for Specified Id
 
-```console
+```jsx harmony
 http://localhost:5001/crypto/:id
 ```
 ### Make a PUT Request for Specified Id
-```console
+ ```jsx harmony
 http://localhost:5001/crypto/:id
 ```
 ### Make a DELETE Request for Specified Id
-```console
+ ```jsx harmony
 http://localhost:5001/crypto/:id
 ```
 ### Response
@@ -150,11 +150,17 @@ Cryptocurrency deleted successfully
 ```
 
 ## This API documentation provides an overview of available endpoints, authentication procedures, and real-time updates through WebSocket. 
- 
-![Site preview](/incorrect_email.png)
-![Site preview](/signup.png)
-![Site preview](/sucessfull_signup.png)
-![Site preview](/live_data.png)
-![Site preview](/crud.png)
 
+## Showing toast messages after every processes including user Signup, Signin, Add, Update ..Crytpo details
+![Site preview](/incorrect_email.png)
+
+![Site preview](/signup.png)
+
+![Site preview](/sucessfull_signup.png)
+
+## Real-time data updaing in the home page
+![Site preview](/live_data.png)
+
+## CRUD operations can be performed
+![Site preview](/crud.png)
 
