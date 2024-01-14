@@ -10,7 +10,6 @@
  ```
 
 ## WebSocket
-
 ### Real-time cryptocurrency updates are available through WebSocket.
 ### WebSocket Connection
  ```jsx harmony
