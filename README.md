@@ -229,7 +229,6 @@ http://localhost:5001/predefined-cryptos
         "market_cap": 19149487879.86375
     }
 ]
-
 ```
 ### User makes POST requests on favourites Cryptocurrencies
 
