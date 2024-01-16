@@ -2,7 +2,7 @@
 
 ![Site preview](./real-time-data.gif)
 
-## The Cryptocurrency Price Tracking API provides real-time information about cryptocurrency prices and allows users to manage user's favorite cryptocurrencies. This provides an overview of available endpoints, authentication procedures, and real-time updates through WebSocket. 
+## The Cryptocurrency Price Tracking Application provides real-time information about cryptocurrency prices and allows users to manage user's favorite cryptocurrencies. This provides an overview of available endpoints, authentication procedures, and real-time updates through WebSocket. 
 
 ### Base URL:
  ```console
