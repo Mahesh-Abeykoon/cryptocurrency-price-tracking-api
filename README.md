@@ -24,6 +24,7 @@
 };
 ```
 ## Web Socket Middleware websocketMiddleware
+
 ``` jsx harmony
 //Import the 'ws' library and a custom function called 'fetchRealTimeCryptoDetails'.
 
