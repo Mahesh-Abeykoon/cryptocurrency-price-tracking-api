@@ -72,6 +72,7 @@ module.exports = websocketMiddleware;
 ## JWT (JSON Web Token)
 ## To access protected endpoints, users need to authenticate using JWT.
 ### JWT Middlewares
+
 ``` jsx harmny
 //Import necessary modules and the User model.
 const User = require("../Models/UserModel");
